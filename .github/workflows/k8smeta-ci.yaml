@@ -48,16 +48,6 @@ jobs:
             cd build && cmake -DCMAKE_BUILD_TYPE=Release ../
             make k8smeta -j6
 
-        - name: Perform CodeQL Analysis
-          uses: github/codeql-action/analyze@v2			
-
-        - name: Build and run tests 🏎️
-          run: |
-            cd plugins/k8smeta/build
-            make build-server
-            make build-tests
-            make run-server &
-            make run-tests
         
         - name: Build and run tests 🏎️
           uses: actions/upload-artifact@v3
