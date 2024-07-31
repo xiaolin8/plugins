@@ -58,7 +58,13 @@ jobs:
             make build-tests
             make run-server &
             make run-tests
-
+        
+        - name: Build and run tests 🏎️
+          uses: actions/upload-artifact@v3
+          with:
+            name: k8smeta-build-output
+            path: plugins/k8smeta/build
+          
     formatting-check:
       runs-on: ubuntu-22.04
       steps:
